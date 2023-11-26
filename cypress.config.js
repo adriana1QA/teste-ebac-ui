@@ -5,7 +5,8 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    specPattern: "cypress/e2e/**/*.spec.{js,jsx,ts,tsx}"
+    specPattern: "cypress/e2e/**/*.spec.{js,jsx,ts,tsx}",
+    baseUrl: "http://lojaebac.ebaconline.art.br/"
   },
   
 });
