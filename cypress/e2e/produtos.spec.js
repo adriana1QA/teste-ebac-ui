@@ -15,7 +15,7 @@ describe('Funcionalidade Página de Produtos', () => {
         .click()
     });
 
-    it.only('Deve adicionar um produto ao carrinho', () => {
+    it('Deve adicionar um produto ao carrinho', () => {
         var quantidade= 3
        
         cy.get('[class="product-block grid"]')
@@ -29,4 +29,12 @@ describe('Funcionalidade Página de Produtos', () => {
         cy.get('.woocommerce-message').should('contain', quantidade + ' × “Caesar Warm-Up Pant” foram adicionados no seu carrinho.')
     });
     
+    it('Deve adicionar produtos ao carrinho - Usando Comando customizado', () => {
+        cy.addProdutos('Frankie Sweatshirt', 'M', 'Green', 2)
+    });
+
+    it('Deve adicionar produtos ao carrinho - Usando Comando customizado', () => {
+        cy.addProdutos('Caesar Warm-Up Pant', '36', 'Black', 2)
+});
+
 });
