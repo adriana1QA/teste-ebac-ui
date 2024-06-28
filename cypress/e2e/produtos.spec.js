@@ -11,30 +11,30 @@ describe('Funcionalidade Página de Produtos', () => {
         //.first()
         //.last()
         //.eq(3)
-        .contains('Caesar Warm-Up Pant')
+        .contains('Abominable Hoodie')
         .click()
     });
 
     it('Deve adicionar um produto ao carrinho', () => {
-        var quantidade= 3
+        var quantidade= 2
        
         cy.get('[class="product-block grid"]')
-            .contains('Caesar Warm-Up Pant').click()
-        cy.get('.button-variable-item-33').click()
-        cy.get('.button-variable-item-Gray').click()
+            .contains('Abominable Hoodie').click()
+        cy.get('.button-variable-item-S').click()
+        cy.get('.button-variable-item-Blue').click()
         cy.get('.input-text').clear().type(quantidade)
         cy.get('.single_add_to_cart_button').click()
 
         cy.get('.dropdown-toggle > .mini-cart-items').should('contain', quantidade)
-        cy.get('.woocommerce-message').should('contain', quantidade + ' × “Caesar Warm-Up Pant” foram adicionados no seu carrinho.')
+        cy.get('.woocommerce-message').should('contain', quantidade + ' × “Abominable Hoodie” foram adicionados no seu carrinho.')
     });
     
     it('Deve adicionar produtos ao carrinho - Usando Comando customizado', () => {
-        cy.addProdutos('Frankie Sweatshirt', 'M', 'Green', 2)
+        cy.addProdutos('Aero Daily Fitness Tee', 'M', 'Brown', 1)
     });
 
     it('Deve adicionar produtos ao carrinho - Usando Comando customizado', () => {
-        cy.addProdutos('Caesar Warm-Up Pant', '36', 'Black', 2)
+        cy.addProdutos('Abominable Hoodie', 'S', 'Blue', 2)
 });
 
 });

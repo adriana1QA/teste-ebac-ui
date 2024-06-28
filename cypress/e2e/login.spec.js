@@ -8,7 +8,7 @@ context('Funcionalidade Login', () =>{
     });
     
     afterEach(() => {
-        cy.screenshot()
+       cy.screenshot()
     });
     
     it('Deve fazer login com sucesso' , () => {
@@ -16,16 +16,17 @@ context('Funcionalidade Login', () =>{
         cy.get('#username').type('aluno_ebac@teste.com')
         cy.get('#password').type('teste@teste.com')
         cy.get('.woocommerce-form > .button').click()
-
+       
         cy.get('.page-title').should('contain' , 'Minha conta')
+        
     })
 
     it('Deve fazer login com sucesso - Usando arquivo de dados', () => {
         cy.get('#username').type(perfil.usuario)
         cy.get('#password').type(perfil.senha)
         cy.get('.woocommerce-form > .button').click()
-
         cy.get('.page-title').should('contain' , 'Minha conta')
+    
     });
 
     it('Deve fazer login com sucesso - Usuário fixture', () => {
@@ -33,8 +34,8 @@ context('Funcionalidade Login', () =>{
         cy.get('#username').type(dados.usuario)
         cy.get('#password').type(dados.senha, {log: false})
         cy.get('.woocommerce-form > .button').click()
-
         cy.get('.page-title').should('contain' , 'Minha conta')
+        
         })
     });
 
@@ -43,8 +44,8 @@ context('Funcionalidade Login', () =>{
         cy.get('#username').type('ebac@teste.com')
         cy.get('#password').type('teste@teste')
         cy.get('.woocommerce-form > .button').click()
-
-        cy.get('.woocommerce-error').should('contain', 'Erro: a senha fornecida' )
+        cy.get('.woocommerce-error').should('contain', 'Endereço de e-mail desconhecido. Verifique novamente ou tente seu nome de usuário.' )
+        
 
     })
 
@@ -54,7 +55,7 @@ context('Funcionalidade Login', () =>{
         cy.get('#password').type('teste@teste')
         cy.get('.woocommerce-form > .button').click()
 
-        cy.get('.woocommerce-error').should('contain', 'Erro: a senha fornecida para o e-mail aluno_ebac@teste.com está incorreta. Perdeu a senha?')
+        cy.get('.woocommerce-error').should('contain', 'Erro: A senha fornecida para o e-mail aluno_ebac@teste.com está incorreta. Perdeu a senha?')
 
     })
 }) 
